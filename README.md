@@ -45,6 +45,34 @@ how did we distinguish that its the first time that we are creating the app our 
 ⦁	now we should handle these new events that we sat up, in the fragment.
 ⦁	difference between statement and experession in kotlin for compile time safety get()=this extension property kotlin
 ⦁	action in navigation instead of R.id... gives us compile time safety which means if nav needs any argument and we dont pass them to it we get an error
-⦁	
+⦁
+i.	Dependencies
+ii.	Layouts and Room Entity
+iii.	Navigation Component
+iv.	ROOM
+v.	Flow //differences between Flow and live data
+vi.	Dependency Injection
+vii.	
+a.	we added dependencies to the project
+b.	we made the layouts and room entity 
+c.	we set up the navigation component 
+d.	we made WordDao interface 
+e.	we are making the Word database which is an abstract class because room adds things that we need for us in this class we determine entities which is our word dataclass and version and in the class block we make an abstract fnction which returns a wordDao and thats how we get a handle to the dao wherever we needed it and in order to add this dao wherever we needed it we use the dependency injection.
+f.	we make a new package and name it di which contains an object called app module  it also could be a normal class but objects makes the generated code for dagger more efficient 
+
+
+we make a data class parcelable that we need to send between fragments in our case its Word data class that should be sent to the edit fragment through nav args.
+navigation component.
+activities are meant as an entry point to the application
+⦁	Room brings us compile time safety  
+⦁	in the data class we override the get method of our  val created date formatted so whenever er  write word.createdDateFormatted() the new getter will be called and in this getter we will write get()=DateFormat.getDateTImeInstance().format(created) and finally we annotate the dataclass with @Entity(tableName="word")
+⦁	so our room entity which is our dataclass is available.
+⦁	I need to change the room parts because the approach that he has used is useless does that mean to make a new object whenever we want to update something what kind of update it is.
+⦁	room never let you to do any operation on the main thread if you attend to do so it will throw an error
+⦁	fow only can be used or collected in a coroutine so we dont need a suspend modifier for that function all the suspention happens inside the flow 
+⦁	flow is asynchronous stream of data.
+⦁	dependency injection means that classes that use certain other classess should not be responsible for either creating this classes or searching for them. for example when we want to use this dao in our viewmodel the viewmodel should not be responsible for searching for this class it shouldnt execute code that construct it or get it from somewhere.instead the dao should be passed though the constructor  and dagger makes it really easier for us it provides a place where it creates and holds these dependencies like a container and then wherever we needed it dagger will inject this at the correct place at the correct time and hilt is a library from android jetpack which makes using dagger 2 really easier.
+⦁	we anotate the object with @Module which turns it to a dagger module
+	
 
 
