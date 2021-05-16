@@ -1,3 +1,4 @@
+Welcome to the par4 of ANDROID JETPACK TUTORIAL by radman hayati
 what is the objective?
 target : two objects lead to the same fragment for one of them we send some data and for the other one we simply wont and thats how we determine which fragment should open 
 
